@@ -1,0 +1,14 @@
+li{
+   list-style: square;
+   color: lime; 
+}
+img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+iframe{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

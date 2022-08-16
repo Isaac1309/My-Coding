@@ -1,0 +1,11 @@
+div{
+    background-color: beige;
+    height: 100px;
+    width: 50%;
+}
+h1{
+    color: darkslategrey;
+    text-align: center;
+    font-family: cursive;
+    border: 5px solid black;
+}

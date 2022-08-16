@@ -1,0 +1,42 @@
+#include <stdio.h>
+void main(){
+    int anualidad = 1;
+    int meses = 12;
+    int mes = 1;
+    int semanas = 5;
+    int semana = 1;
+    int dias = 7;
+    int dia = 1;
+    int horas = 24;
+    int hora = 1;
+    int minutos = 60;
+    int minuto = 1;
+    int segundosaanualidad;
+    int segundosames;
+    int segundosasemana;
+    int segundosadia;
+    int segundosahora;
+    int segundos;
+    segundos = minuto * 60;
+    minutos = hora * 60;
+    horas = dia * 24;
+    dias = semana * 7;
+    semanas = mes * 5;
+    meses = anualidad * 12;
+    segundosahora = hora * 60 * 60;
+    segundosadia = dia * 60 * 60 * 24;
+    segundosasemana = semana * 60 * 60 * 24 * 7;
+    segundosames = mes * 60 * 60 * 24 * 7 * 5;
+    segundosaanualidad = anualidad * 60 * 60 * 24 * 7 * 5 *12;
+    printf("Hay %d segundos en %d en un minuto. ", segundos, minuto) ;
+    printf("Hay %d minutos en %d en hora. ", minutos, hora) ;
+    printf("Hay %d horas en %d en dia. ", horas, dia) ;
+    printf("Hay %d dias en %d en semana. ", dias, semana) ;
+    printf("Hay %d semanas en %d en mes. ", semanas, mes) ;
+    printf("Hay %d meses en %d en anualidad.", meses, anualidad) ;
+    printf("Hay %d segundos en %d en hora.", segundosahora, hora) ;
+    printf("Hay %d segundos en %d en dia.", segundosadia, dia) ;
+    printf("Hay %d segundos en %d en semana.", segundosasemana, semana) ;
+    printf("Hay %d segundos en %d en mes.", segundosames, mes) ;
+    printf("Hay %d segundos en %d en anualidad.", segundosaanualidad, anualidad) ;
+    getch();}

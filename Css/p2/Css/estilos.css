@@ -1,0 +1,35 @@
+/* selector uniersal "*{}" */
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica;
+    background-color: beige;
+    color: chocolate;
+}
+/* Selecetores por tipo elemento */
+h3{
+    background-color: black;
+    color: whitesmoke;
+    padding: 20px;
+}
+p{
+    background-color: aqua;
+    padding: 20px;
+}
+a{
+    text-decoration: none;
+    color: darkorchid;
+    
+}
+span{
+    color: darkgray;
+}
+/* Selector de tipo decendente */
+div p span{
+    color: white;
+    background-color: black;
+}
+div p{
+    background-color: tomato;
+    color: thistle;
+}

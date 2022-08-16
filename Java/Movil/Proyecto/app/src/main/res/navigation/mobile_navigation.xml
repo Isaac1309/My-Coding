@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.proyecto.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.proyecto.ui.Transaccion.TransaccionFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_transacciones" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.proyecto.ui.Reporte.ReporteFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_reporte" />
+
+    <fragment
+        android:id="@+id/nav_cuentas"
+        android:name="com.example.proyecto.ui.CuentasFragment"
+        android:label="@string/menu_cuentas"
+        tools:layout="@layout/fragment_cuentas" />
+
+
+    <fragment
+        android:id="@+id/nav_deposito"
+        android:name="com.example.proyecto.ui.DepositoFragment"
+        android:label="@string/menu_deposito"
+        tools:layout="@layout/fragment_deposito" />
+    <fragment
+        android:id="@+id/nav_crear"
+        android:name="com.example.proyecto.ui.DepositoFragment"
+        android:label="@string/menu_deposito"
+        tools:layout="@layout/fragment_crear_cuenta" />
+</navigation>

@@ -1,0 +1,183 @@
+<!DOCTYPE html> 
+<html lang="es">
+    <head>
+        <meta  charset="UTF-8">
+        <title> Formularios </title>
+    </head>
+    <body>
+        <form action="">
+            <fieldset>
+                <legend> Formulario de datos personales </legend>
+                <label for="nombre"> Nombre </label>
+                <input type="text" id="nombre" name="nombre">
+                <label for="fecha"> Fecha </label>
+                <input type="date" id="fecha" name="fecha">
+                <label for="password"> Password </label>
+                <input type="password" id="password" name="password">
+                <input type="submit" value="Enviar">
+            </fieldset>
+        </form>
+        <form action="">
+            <fieldset>
+                <legend> Seleccionar Animal </legend>
+                <label for="leon"> Leon </label>
+                <input type="radio" id="leon" name="animal" value="leon">
+                <label for="cangrejo"> Cangrejo </label>
+                <input type="radio" id="cangrejo" name="animal" value="cangrejo">
+                <label for="jirafa"> Jirafa </label>
+                <input type="radio" id="jirafa" name="animal" value="jirafa">
+                <label for="osolori"> Oso de lori </label>
+                <input type="radio" id="osolori" name="animal" value="osolori">
+            </fieldset>
+            <fieldset>
+                <legend> Seleccionar interes (Hobby) </legend>
+                <label for="gitarra"> Tocar la gitarra </label>
+                <input type="checkbox" id="gitarra" name="interesG">
+                <label for="futbol"> Jugar Futbol </label>
+                <input type="checkbox" id="futbol" name="interesf">
+                <label for="viajar"> Viajar </label>
+                <input type="checkbox" id="viajar" name="interesv">
+                <label for="pianoenc"> Ser un piano encantado en las noches </label>
+                <input type="checkbox" id="pianoenc" name="interespe">
+                <input type="submit" value="Enviar">
+            </fieldset>
+        </form>
+        <form action="">
+            <fieldset>
+                <legend> Rangos </legend>
+                <label for="interesRango"> Rango de Interes </label>
+                <input type="range" name="interesRango" id="rango" min="0" max="100" value="50">
+                <label for="color"> Color </label>
+                <input type="color" name="color" id="color">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </fieldset>
+        </form>
+        <form action="">
+            <fieldset>
+                <legend> Animales </legend>
+                <select name="animales" id="animales">
+                    <option value=""> Selecciona un animal </option>
+                    <option value="1"> Gato </option>
+                    <option value="2"> Perro </option>
+                    <option value="3"> Pato </option>
+                    <option value="10"> Yo soy el animal </option>
+                </select>
+                <select name="lenguaje" id="lenguaje" multiple>
+                    <option value=""> Selecciona un lenguaje </option>
+                    <optgroup label="Lenguajes FrontEnd">
+                        <option value="html"> HTML </option>
+                        <option value="javascript"> JavaScript </option>
+                        <option value="css"> CSS </option>
+                    </optgroup>
+                    <optgroup label="Lenguajes BackEnd">
+                        <option value="php"> PHP </option>
+                        <option value="javascript(node)"> JavaScript Node JS </option>
+                        <option value="phyton"> Phyton </option>
+                    </optgroup>
+                    <input type="submit" value="Enviar">
+                </select>
+            </fieldset>
+        </form>
+        <form action="">
+            <fieldset>
+                <legend> Ciudades </legend>
+                <label for=""> Buscar una ciudad en Jalisco </label>
+                <input type="search" name="ciudad" id="ciudad" list="ciudades">
+                <datalist id="ciudades">
+                    <option value="Guadalajara"></option>
+                    <option value="Tlaquepaque"></option>
+                    <option value="Zapopan"></option>
+                    <option value="Tonala"></option>
+                </datalist>
+                <br>
+                <label for=""> Barras de Progreso </label>
+                <progress id="barra1" value="50" max="100"></progress>
+                <progress max="100"></progress>
+                <br>
+                <label for=""> Area de texto </label>
+                <br>
+                <textarea name="TextArea" id="textArea" cols="30" rows="10" maxlength="100"> Texto pre-incluido </textarea>
+                <br>
+                <input type="text" name="inputName" placeholder="Agregar Nombre....">
+                <input type="email" name="inputEmail" placeholder="Correo..." required>
+                <br>
+                <button type="submit"> Enviar </button>
+            </fieldset>
+        </form>
+        <form oninput="suma()">
+            <fieldset>
+                <legend> Calculadora de Suma </legend>
+                <label for="">Calculadora de Suma</label>
+                <br>
+                <input type="number" id="nums1" step="any">
+                <input type="number" id="nums2" step="2"> =
+                <output id="resultadoSum"></output>
+            </fieldset>
+        </form>
+        <script>
+            function suma(){
+                var n1=document.getElementById('nums1').value;
+                var n2=document.getElementById('nums2').value;
+                var res=parseFloat(n1)+parseFloat(n2);
+                document.getElementById('resultadoSum').value=res;
+            }
+        </script>
+        <form id="resta">
+            <fieldset>
+                <legend> Calculadora de Resta </legend>
+                <label for="">Calculadora de Resta</label>
+                <br>
+                <input type="number" id="numr1" step="any">
+                <input type="number" id="numr2" step="2"> =
+                <output id="resultadoRes"></output>
+            </fieldset>
+        </form>
+        <script>
+            document.getElementById('resta').addEventListener('input',resta)
+            function resta(){
+                var n1=document.getElementById('numr1').value;
+                var n2=document.getElementById('numr2').value;
+                var res=parseFloat(n1)-parseFloat(n2);
+                document.getElementById('resultadoRes').value=res;
+            }
+        </script>
+        <form oninput="multiplicacion()">
+            <fieldset>
+                <legend> Calculadora de Multiplicacion </legend>
+                <label for="">Calculadora de Multiplicacion</label>
+                <br>
+                <input type="number" id="numm1" step="any">
+                <input type="number" id="numm2" step="2"> =
+                <output id="resultadoMult"></output>
+            </fieldset>
+        </form>
+        <script>
+            function multiplicacion(){
+                var n1=document.getElementById('numm1').value;
+                var n2=document.getElementById('numm2').value;
+                var res=parseFloat(n1)*parseFloat(n2);
+                document.getElementById('resultadoMult').value=res;
+            }
+        </script>
+        <form id="divicion">
+            <fieldset>
+                <legend> Calculadora de Divicion </legend>
+                <label for="">Calculadora de Divicion</label>
+                <br>
+                <input type="number" id="numd1" step="any">
+                <input type="number" id="numd2" step="any"> =
+                <output id="resultadoDiv"></output>
+            </fieldset>
+        </form>
+        <script>
+            document.getElementById('divicion').addEventListener('input',divicion)
+            function divicion(){
+                var n1=document.getElementById('numd1').value;
+                var n2=document.getElementById('numd2').value;
+                var res=parseFloat(n1)/parseFloat(n2);
+                document.getElementById('resultadoDiv').value=res;
+            }
+        </script>
+    </body>
+</html>

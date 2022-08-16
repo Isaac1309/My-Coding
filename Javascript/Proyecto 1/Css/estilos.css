@@ -1,0 +1,196 @@
+.cuerpoP{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+.flogo{
+    background-color: ghostwhite;
+}
+.logstri{
+    margin: auto;
+    padding: 30px;
+    max-width: 80%;
+}
+.headi{
+    background-image: url(../Strict-assets/bg-header.jpg);
+    height: 800px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-size: cover;
+}
+.headinf{
+    text-align: center;
+    width: 30%;
+    margin: auto;
+}
+.contacto{
+    background-image: url(../Strict-assets/bg-stay.jpg);
+    height: 700px;
+    background-size: cover;
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0px;
+}
+.titmar{
+    color: white;
+    font-size: 80px;
+}
+hr{
+    border-color: deepskyblue;
+}
+.pmar{
+    color: white;
+    font-size: 20px;
+}
+.bucall{
+    color: white;
+    background-color: transparent;
+    border: 1px solid deepskyblue;
+    padding: 15px 30px;
+    border-radius: 3px;
+}
+.simple{
+    background-color: ghostwhite;
+    padding: 100px;
+}
+.contex{
+    margin: auto;
+    text-align: center;
+}
+.tsim{
+    font-size: 35px;
+    color: rgba(0, 0, 0, 0.788);
+    font-weight: 500;
+}
+.psim{
+    color: rgb(70, 70, 70);
+}
+.contservi{
+    margin: auto;
+    display: flex;
+    width: 1100px;
+    padding: 100px;
+}
+.cajaser{
+    width: 33.333%;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+}
+.cajaser img{
+    margin-bottom: 20px;
+}
+.cajaser h4{
+    color: rgba(0, 0, 0, 0.788);
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.cajaser span{
+    color: rgb(70, 70, 70);
+    font-weight: 200;
+    font-size: 12px;
+}
+.secshowcase{
+    background-color: ghostwhite;
+}
+.showcase{
+    margin: auto;
+    width: 1100px;
+    padding: 100px 0px;
+}
+.showenca{
+    text-align: center;
+    margin-bottom: 80px;
+}
+.showenca h3{
+    font-size: 35px;
+    color: rgba(0, 0, 0, 0.788);
+    font-weight: 500;
+    padding: 10px;
+}
+.showenca span{
+    color: rgb(70, 70, 70);
+    font-weight: 200;
+    font-size: 12px;
+}
+.fila{
+    display: flex;
+}
+.cimg{
+    width: 33.333%;
+    padding: 10px;
+}
+.contenedorcon{
+    margin: auto;
+    width: 1100px;
+    padding: 50px 0px;
+}
+.context{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.context h3{
+    font-size: 35px;
+    color: whitesmoke;
+    font-weight: 500;
+    padding: 10px;
+}
+.context span{
+    color: lightgray;
+    font-weight: 200;
+    font-size: 12px;
+}
+.contactoform{
+    max-width: 600;
+    margin: auto;
+}
+.inputext{
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid gray;
+    color: lightgray;
+    border-radius: 5px;
+}
+textarea{
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid gray;
+    color: lightgray;
+    border-radius: 5px;
+}
+.acciones{
+    display: flex;
+}
+.check{
+    color: lightgray;
+    width: 95%;
+}
+.btnsend{
+    width: 5%;
+}
+.fotbackcolor{
+    background-color: ghostwhite;
+}
+.footer{
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+.footer span{
+    color: lightgray;
+    width: 75%;
+}
+.redes{
+    width: 25%;
+}
+a{
+    text-decoration: none;
+}

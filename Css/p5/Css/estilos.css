@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+p span:first-child{
+    background-color: chartreuse;
+}
+p span:last-child{
+    background-color: cornflowerblue;
+}
+a:lang(en){
+    background-color: crimson;
+    text-decoration: none;
+    color: ghostwhite;
+}
+a:lang(es){
+    background-color: goldenrod;
+    text-decoration: none;
+    color: ghostwhite;
+}
+button:active{
+    background-color: indianred;
+    padding: 10px;
+}
+.hov:hover, p:hover{
+    background-color: indigo;
+    padding: 10px;
+    color: ghostwhite;
+}
+input:focus, textarea:focus{
+    background-color: hotpink;
+    color: darkred;
+    padding: 10px;
+}

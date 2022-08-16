@@ -1,0 +1,88 @@
+Falta enlazar la biblioteca de OpenCL, esto depende del sistema operativo y los controladores de video instalados.
+Recuerda que solo funciona con los drivers privativos del fabricante, los drivers libres (como nouveau y xf86-video-ati) no poseen soporte para opencl.
+
+
+Linux:
+
+Si tienes suerte y tu distro tiene todo en orden, solo basta abrir el proyecto en Code::Blocks y dar en el boton Build y el programa se compilara sin problemas.
+De lo contrario te toparas con errores del tipo "cannot find -lOpenCL" o un monton de "undefined reference to ", son simplemente porque ld no encuentra las 
+biblioteca y encabezados (por que no han sido definidos). Lo puedes arreglarlo de la siguiente forma:
+
+Abrir el proyecto en Code::Block, de ahi ir al menu Project -> Properties -> Project's build options.
+aqui se agregan en las pestañas Linker settings y Search directories.
+
+Linker settings -> Link libraries -> Add
+
+Se abrira una ventana para introducir la ruta de la biblioteca binaria y un boton para abrir el explorador de archivos.
+Aqui se busca la ruta de la biblioteca de opencl, el donde esta depende del distro y el fabricante del hardware.
+
+Tipicamente la ruta es:
+
+"/usr/lib/OpenCL/vendors/amd" si se posee hardware AMD
+"/usr/lib/OpenCL/vendors/nvidia" si se posee hardware NVIDIA
+
+algunos distro pueden tener otras rutas, como:
+
+/opt/AMDAPP/lib/x86_64
+
+o bien:
+
+/usr/local/cuda/lib64
+
+Si aun muestra el error "cannot find -lOpenCL", borra la option -lOpenCL de la pestaña Linker settings -> Other linker options, y en la parte de Link libraries
+agregar la ruta completa hacia la biblioteca binaria, por ejemplo "/usr/lib/OpenCL/vendors/amd/libOpenCL.so"
+
+
+
+Para los encabezados de opencl (archivos .h)
+
+Search directories -> Linker -> Add
+
+Se abrira una ventana para introducir la ruta donde estan los encabezados de opencl y un boton para abrir el explorador de archivos.
+Nuevamente, el donde estan estos archivos depende exclusivamente del distro.
+
+Tipicamente la ruta es:
+
+/usr/lib/OpenCL/global/include/
+
+en algunos distros puede estar en:
+
+/opt/AMDAPP/include
+
+o bien:
+
+/usr/local/cuda/include
+
+Windows:
+
+Cabe la posibilidad de que poseas los drivers genericos de video que vienen con Windows, estos drivers no poseen soporte para opencl. Ve a la pagina del
+fabricante de tu tarjeta de video y baja e instala el driver de video correspondiente.
+
+Este driver ya posee las biblioteca de tiempo de ejecucion para opencl, lo que significa que un programa ya compilado que requiera opencl, funcionara sin problemas.
+Pero no posee biblioteca para desarrollo ni encabezados (requeridos para compliar este ejemplo). Estos archivos vienen Tipicamente en los SDK de cada fabricante (AMD, NVIDA, INTEL), 
+descarga e instala el SDK del fabricante de tu Hardware.
+
+AMD APP SDK		(AMD)
+CUDA Toolkit		(NVIDIA)
+Intel SDK for OpenCL	(INTEL)
+
+El link de bibliotecas es el mismo que en linux, con la diferencia de que las rutas son distintas y dependen de donde hallas instalado el SDK correspondiente.
+
+por ejemplo:
+
+Para la biblioteca binaria:
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\lib\Win32
+C:\PROGRAM FILES (X86)\AMD APP\LIB\X86_32
+
+puede que en esta parte debas poner la ruta al binario, son los archivos .a (los .lib son para visual estudio)
+
+Para los encabezados:
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include
+C:\Program Files (x86)\AMD APP\include
+
+Solo falta aclarar que las bibliotecas deben coincidir con el compilador (32 o 64 bits), lo mas probable es que utilices MinGW con Code::Blocks, que es de 32 bits.
+Si mezclas 32 con 64 bits tendras otros errores al tiempo de compilar.
+
+
+
+

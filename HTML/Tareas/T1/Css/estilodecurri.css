@@ -1,0 +1,63 @@
+html{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+.infocabeza{
+    background-image: url(../imagenes/fondo.jpg);
+    height: 500px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    background-size: cover;
+}
+.info{
+    text-align: center;
+    width: 30%;
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0px;
+}
+.logcontact{
+    text-align: center;
+}
+.foto{
+    height: 500px;
+    align-items: cover;
+    display: flex;
+}
+.contenido{
+    margin: auto;
+    display: flex;
+    width: 1500px;
+    padding: 50px;
+}
+.cont{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+}
+.datos{
+    text-align: justify;
+}
+.fotcolor{
+    background-image: url(../imagenes/fondo.jpg);
+    background-size: cover;
+}
+.footer{
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    padding: 13px;
+    align-items: center;
+}
+.footer span{
+    color: gray;
+    width: 75%;
+}
+.redes{
+    width: 25%;
+}
+a{
+    text-decoration: none;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wikipedia en apis</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $("#go").click(function () {
+          console.log("Botón presionado");
+          var patronDeBusqueda = $("#search").val();
+          var url = "https://es.wikipedia.org/w/api.php?action=query&list=search&srprop=snippet&format=json&origin=*&utf8=&srsearch=" + patronDeBusqueda;
+          var ren = "https://es.wikipedia.org/wiki/"+patronDeBusqueda;
+          $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "jsonp",
+            success: function (data) {
+              console.log(data);
+              document.getElementById("urlBuscado").innerText = url;
+              document.getElementById("objetoJson").innerText = JSON.stringify(data);
+              document.getElementById("render").src=ren;
+            },
+            error: function (errorMessage) {
+              console.log("Error en la funcion");
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <section name="F1">
+        <h2>Seccion 1: Busqueda en Wikipedia</h2>
+        <input type="text" id="search" />
+        <button id="go">Realizar Busqueda</button>
+    </section>
+    <section name="F2">
+      <h2>Seccion 2: Request Generado</h2>
+      <span id="urlBuscado"></span>
+    </section>
+    <section name="F3">
+        <h2>Seccion 3: Cadena de Respuesta</h2>
+        <span id="objetoJson"></span>
+    </section>
+    <section name="F4">
+        <h2>Seccion 4: Render de la Respuesta</h2>
+        <iframe id="render" src="" frameborder="10%" width="70%" height="700"></iframe>
+    </section>
+  </body>
+</html>

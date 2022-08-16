@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+#nav{
+    height: 150px;
+    background-color: chartreuse;
+}
+#sli{
+    height: 50px;
+    background-color: cyan;
+}
+#ser{
+    height: 120px;
+    background-color: darkturquoise;
+}
+#pie{
+    height: 50px;
+    background-color: fuchsia;
+}
+.servicio{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    display: inline-block;
+    border-radius: 30%;
+}
+.servicio h5{
+    line-height: 100px;
+    color: ghostwhite;
+}

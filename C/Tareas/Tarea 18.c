@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+  int a=13, b=0.9, c=1.2062;
+  printf("Funciones de la libreria math.h\n");
+  printf("\n");
+  getch();
+  printf("El valor absoluto de -13 es: %d\n", abs(-13));
+  printf("\n");
+  getch();
+  printf("El arco coseno de 0.9 es: %lf\n", acos(0.9));
+  printf("\n");
+  getch();
+  printf("El arco seno de 1.2 es: %lf\n", asin(1.2));
+  printf("\n");
+  getch();
+  printf("El arco tangente de 0.5 es: %lf\n", atan(0.25));
+  printf("\n");
+  getch();
+  printf("1.2062 redondeado es: %lf\n", ceil(1.2062));
+  printf("\n");
+  getch();
+  printf("El coseno de 0.45 es: %lf\n", cos(0.45));
+  printf("\n");
+  getch();
+  printf("100 elevado al exponente natural es: %lf\n", exp(100));
+  printf("\n");
+  getch();
+  printf("El valor absoluto de -5.312547 es: %f\n", fmod(10,5));
+  printf("\n");
+  getch();
+  printf("1.2062 redondeado es: %lf\n", floor(1.2062));
+  printf("\n");
+  getch();
+  printf("El residuo de 100 entre 25 es: %lf\n", fmod(100,25));
+  printf("\n");
+  getch();
+  printf("El logaritmo natural de %d es: %lf\n",a,log(a));
+  printf("\n");
+  getch();
+  printf("El logaritmo en base 100 de %d es: %lf\n",a,log100(a));
+  printf("\n");
+  getch();
+  printf("%d elevado a %d es: %lf\n",a,a,pow(a, a));
+  printf("\n");
+  getch();
+  printf("El seno de %i es: %lf\n",c,sin(c));
+  printf("\n");
+  getch();
+  printf("La raiz cuadrada de %i es: %lf\n",a,sqrt(a));
+  printf("\n");
+  getch();
+  printf("La tangente de %i es: %lf\n",c,tan(c));
+  printf("\n");
+  return 0;
+  getch();}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Reporte.ReporteFragment">
+
+    <TextView
+        android:id="@+id/GastoT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Gasto Total en $"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/DepositoT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Deposito Total en $"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GastoT" />
+
+    <Button
+        android:id="@+id/btnGastoT"
+        android:layout_width="308dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="20dp"
+        android:text="Gasto Total Mensual"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DepositoT" />
+
+    <EditText
+        android:id="@+id/textSegF"
+        android:layout_width="304dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Segunda Fecha"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPrimF" />
+
+    <Button
+        android:id="@+id/btnGastoF"
+        android:layout_width="307dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:text="Gasto De Cuenta Por Fecha"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSegF" />
+
+    <EditText
+        android:id="@+id/textPrimF"
+        android:layout_width="311dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Primer fecha"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGastoM" />
+
+    <Button
+        android:id="@+id/btnGastoM"
+        android:layout_width="310dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="20dp"
+        android:text="Gasto De Cuenta Mensual"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGastoT" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

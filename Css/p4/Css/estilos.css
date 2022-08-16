@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+.pcon{
+    font-size: 20px;
+}
+.pcon > p{
+    background-color: hotpink;
+    text-align: justify;
+    padding: 5px;
+}
+h3 + a{ /*Selector abyacente, selecciona un hermano arriba o abajo*/
+    font-size: 25px;
+    color: blueviolet;
+}
+.scon ~ p{/*Seleccionar todos los elementos despues del primer hermano selctor*/
+    background-color: cyan;
+}
+/*[] selcetor de atributo*/
+[id="sel1"]{
+    background-color: black;
+    color: ghostwhite;
+}
+[value="2"]{
+    background-color: indigo;
+}
+.animal [value="1"]{
+    background-color: lightgreen;
+}
