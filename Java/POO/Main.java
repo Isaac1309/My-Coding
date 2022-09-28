@@ -2,6 +2,8 @@ import classObject.*;
 import encapsulation.*;
 import inheritance.*;
 import java.util.Date;
+
+import javax.lang.model.element.Element;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Class and Object like a Calculator:");
@@ -40,13 +42,30 @@ public class Main {
         System.out.println(employee2);
         printDitails(employee2);
         
-        var date = new Date();
+        Date date = new Date();
         System.out.println("Sub-Class (Client):");
         Client client1 = new Client(date, true, "Maria", 'F', 25, "Chiapas Mexico");
         System.out.println(client1);
         printDitails(client1);
+
+        String obj="I'm an Object because i inherit from the Object Class";
+        getType(employee1);
+        getType(person);
+        getType(obj);
+        getType(client1);
     }
     public static void printDitails(Person person){
         System.out.println(person.getDitails());
+    }
+    public static void getType(Object object){
+        if(object instanceof Employee){
+            System.out.println("The type is Employee");
+        }else if (object instanceof Client){
+            System.out.println("The type is Client");
+        }else if (object instanceof Person){
+            System.out.println("The type is Person");
+        }else if (object instanceof Object){
+            System.out.println("The type is Object");
+        }
     }
 }
