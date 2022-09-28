@@ -31,4 +31,9 @@ public class Employee extends Person{
             .append('}');
         return sBuilder.toString();
     }
+    
+    @Override
+    public String getDitails() {
+        return super.getDitails()+" Salary: "+this.salary;
+    }
 }

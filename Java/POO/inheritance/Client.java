@@ -40,4 +40,9 @@ public class Client extends Person {
             .append('}');
         return sBuilder.toString();
     }
+
+    @Override
+    public String getDitails() {
+        return super.getDitails()+" Date: "+this.registerDate+" Vip: "+this.vip;
+    }
 }

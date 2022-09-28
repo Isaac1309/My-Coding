@@ -17,6 +17,10 @@ public class Person {
         this.direction=direction;
     }
 
+    public String getDitails(){
+        return "Name: "+this.name+" Age: "+this.age;
+    }
+
     public String getName() {
         return name;
     }
