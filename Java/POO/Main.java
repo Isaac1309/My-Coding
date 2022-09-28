@@ -38,11 +38,15 @@ public class Main {
         System.out.println(employee1.getDitails());
         Employee employee2 = new Employee(12000, "Pedro");
         System.out.println(employee2);
+        printDitails(employee2);
         
         var date = new Date();
         System.out.println("Sub-Class (Client):");
         Client client1 = new Client(date, true, "Maria", 'F', 25, "Chiapas Mexico");
         System.out.println(client1);
-        System.out.println(client1.getDitails());
+        printDitails(client1);
+    }
+    public static void printDitails(Person person){
+        System.out.println(person.getDitails());
     }
 }
