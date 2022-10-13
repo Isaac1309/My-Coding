@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Working with a Stack class that I create");
         System.out.println("Stacks with Arrays");
         Stack<Integer> number = new Stack<>();
 

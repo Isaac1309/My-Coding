@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Working with a Stack class that I create");
         System.out.println("Stacks with LinkedList of String");
         Stack<String> names = new Stack<>();
 
