@@ -1,3 +1,5 @@
+import java.util.Date;
+
 import classObject.*;
 import encapsulation.*;
 import inheritance.*;
@@ -5,7 +7,6 @@ import enumType.*;
 import abstractClass.*;
 import interfaces.*;
 import blockCode.*;
-import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
