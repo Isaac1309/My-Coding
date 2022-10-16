@@ -28,6 +28,68 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public void remove(T data) {
+        if(root!=null) remove(data, root);
+    }
+    private void remove(T data, Node<T> node) {
+        if(node==null) return;
+        if(node.getData().compareTo(data)>0){
+            remove(data, node.getLeftChild());
+        }else if(node.getData().compareTo(data)<0){
+            remove(data, node.getRightChild());
+        }else{
+            if(node.getLeftChild()==null && node.getRightChild()==null){
+                System.out.println("\nRemoving a leaf node");
+                Node<T> parent = node.getParentNode();
+                if(parent!=null && parent.getLeftChild()==node){
+                    parent.setLeftChild(null);
+                }else if(parent!=null && parent.getRightChild()==node){
+                    parent.setRightChild(null);
+                }
+                if(parent==null) root=null;
+                node=null;
+            }
+            else if(node.getLeftChild()==null && node.getRightChild()!=null){
+                System.out.println("\nRemoving a node with only a right child");
+                Node<T> parent = node.getParentNode();
+                if(parent!=null && parent.getLeftChild()==node){
+                    parent.setLeftChild(node.getRightChild());
+                }else if(parent!=null && parent.getRightChild()==node){
+                    parent.setRightChild(node.getRightChild());
+                }
+                if(parent==null) {
+                    root=node.getRightChild();
+                }
+                node.getRightChild().setParentNode(parent);
+                node=null;
+            }
+            else if(node.getLeftChild()!=null && node.getRightChild()==null){
+                System.out.println("\nRemoving a node with only a left child");
+                Node<T> parent = node.getParentNode();
+                if(parent!=null && parent.getLeftChild()==node){
+                    parent.setLeftChild(node.getLeftChild());
+                }else if(parent!=null && parent.getRightChild()==node){
+                    parent.setRightChild(node.getLeftChild());
+                }
+                if(parent==null) {
+                    root=node.getLeftChild();
+                }
+                node.getLeftChild().setParentNode(parent);
+                node=null;
+            }
+            else{
+                System.out.println("\n\nRemoving a node with 2 children");
+                Node<T> predecessor = getPredecessor(node.getLeftChild());
+                T temp = predecessor.getData();
+                predecessor.setData(node.getData());
+                node.setData(temp);
+                remove(data, predecessor);
+            }
+        }
+    }
+    private Node<T> getPredecessor(Node<T> node){
+        if(node.getRightChild()!=null)
+            return getPredecessor(node.getRightChild());
+        return node;
     }
 
     @Override
