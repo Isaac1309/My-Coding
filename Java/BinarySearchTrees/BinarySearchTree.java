@@ -94,8 +94,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public void traversal() {
-        if(root==null) return;
-        traversal(root);
+        if(root!=null) traversal(root);
     }
     private void traversal(Node<T> node) {
         if(node.getLeftChild()!=null){

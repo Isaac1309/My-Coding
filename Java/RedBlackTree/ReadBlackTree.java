@@ -1,28 +1,34 @@
-public class AVLTree<T extends Comparable<T>> implements Tree<T> {
+public class ReadBlackTree <T extends Comparable<T>> implements Tree<T>{
     private Node<T> root;
 
     @Override
     public void insert(T data) {
-        if(root==null)
+        if(root==null){
             root=new Node<>(data, null);
-        else
+            settleViolations(root);
+        }else{
             insert(data, root);
+        }
     }
     private void insert(T data, Node<T> node){
         if(node.getData().compareTo(data)>0){
             if(node.getLeftChild() != null)
                 insert(data, node.getLeftChild());
-            else
-                node.setLeftChild(new Node<>(data, node));
+            else{
+                Node<T> newNode=new Node<>(data, node);
+                node.setLeftChild(newNode);
+                settleViolations(newNode);
+            }
         }
         else {
             if(node.getRightChild() != null)
                 insert(data, node.getRightChild());
-            else
-                node.setRightChild(new Node<>(data, node));
+            else{
+                Node<T> newNode=new Node<>(data, node);
+                node.setRightChild(newNode);
+                settleViolations(newNode);
+            }
         }
-        updateHeight(node);
-        settleViolations(node);
     }
 
     @Override
@@ -46,8 +52,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
                 }
                 if(parent==null) root=null;
                 node=null;
-                updateHeight(parent);
-                settleViolations(parent);
             }
             else if(node.getLeftChild()==null && node.getRightChild()!=null){
                 System.out.println("\nRemoving a node with only a right child");
@@ -62,8 +66,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
                 }
                 node.getRightChild().setParentNode(parent);
                 node=null;
-                updateHeight(parent);
-                settleViolations(parent);
             }
             else if(node.getLeftChild()!=null && node.getRightChild()==null){
                 System.out.println("\nRemoving a node with only a left child");
@@ -78,8 +80,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
                 }
                 node.getLeftChild().setParentNode(parent);
                 node=null;
-                updateHeight(parent);
-                settleViolations(parent);
             }
             else{
                 System.out.println("\n\nRemoving a node with 2 children");
@@ -91,6 +91,65 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
             }
         }
     }
+    private void settleViolations(Node<T> node){
+        Node<T> parentNode = null;
+        Node<T> grandParentNode = null;   
+        while(node!=root && isRed(node) && isRed(node.getParentNode())){
+            parentNode = node.getParentNode();
+            grandParentNode = parentNode.getParentNode();    
+            if(parentNode==grandParentNode.getLeftChild()){
+                Node<T> uncle = grandParentNode.getRightChild();
+                if(uncle!=null && isRed(uncle)){
+                    grandParentNode.setColor(NodeColor.RED);
+                    parentNode.setColor(NodeColor.BLACK);
+                    uncle.setColor(NodeColor.BLACK);
+                    node=grandParentNode;
+                }else{
+                    if(node==parentNode.getRightChild()){
+                        leftRotation(parentNode);
+                        node=parentNode;
+                        parentNode=grandParentNode;
+                    }
+                    rightRotation(grandParentNode);
+                    System.out.println("Recoroling "+parentNode+" + "+ grandParentNode);
+                    NodeColor tempColor = parentNode.getColor();
+                    parentNode.setColor(grandParentNode.getColor());
+                    grandParentNode.setColor(tempColor);
+                    node=parentNode;
+                }
+            }else{
+                Node<T> uncle = grandParentNode.getLeftChild();
+                if(uncle!=null && isRed(uncle)){
+                    grandParentNode.setColor(NodeColor.RED);
+                    parentNode.setColor(NodeColor.BLACK);
+                    uncle.setColor(NodeColor.BLACK);
+                    node=grandParentNode;
+                }else{
+                    if(node==parentNode.getLeftChild()){
+                        rightRotation(parentNode);
+                        node=parentNode;
+                        parentNode=grandParentNode;
+                    }
+                    leftRotation(grandParentNode);
+                    System.out.println("Recoroling "+parentNode+" + "+ grandParentNode);
+                    NodeColor tempColor = parentNode.getColor();
+                    parentNode.setColor(grandParentNode.getColor());
+                    grandParentNode.setColor(tempColor);
+                    node=parentNode;
+                }
+            }
+        }
+        if(isRed(root)){
+            System.out.println("Recoloring the root to black");
+            root.setColor(NodeColor.BLACK);
+        }
+    }
+
+    private boolean isRed(Node<T> node){
+        if(node == null) return false;
+        return node.getColor()==NodeColor.RED;
+    }
+
     private Node<T> getPredecessor(Node<T> node){
         if(node.getRightChild()!=null)
             return getPredecessor(node.getRightChild());
@@ -110,30 +169,7 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
             traverse(node.getRightChild());
         }
     }
-
-    private void settleViolations(Node<T> node){
-        while(node!=null){
-            updateHeight(node);
-            settleViolationsHelper(node);
-            node = node.getParentNode();
-        }
-    }
-    private void settleViolationsHelper(Node<T> node){
-        int balance = getBalance(node);
-        if(balance>1){
-            if(getBalance(node.getLeftChild())<0){
-                leftRotation(node.getLeftChild());
-            }
-            rightRotation(node);
-        }
-        if(balance<-1){
-            if(getBalance(node.getRightChild())>0){
-                rightRotation(node.getRightChild());
-            }
-            leftRotation(node);
-        }
-    }
-
+    
     private void rightRotation(Node<T> node){
         System.out.println("Doing a Right Rotation on node: "+node);
         Node<T> tempLeftChild=node.getLeftChild();
@@ -153,8 +189,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
         }
         if(node==root)
         root=tempLeftChild;
-        updateHeight(node);
-        updateHeight(tempLeftChild);
     }
 
     private void leftRotation(Node<T> node){
@@ -176,21 +210,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
         }
         if(node==root)
         root=tempRightChild;
-        updateHeight(node);
-        updateHeight(tempRightChild);
     }
 
-    private void updateHeight(Node<T> node){
-        node.setHeight(Math.max(height(node.getLeftChild()), height(node.getRightChild()))+1);
-    }
-
-    private int height(Node<T> node){
-        if(node==null) return -1;
-        return node.getHeight();
-    }
-
-    private int getBalance(Node<T> node){
-        if(node==null) return 0;
-        return height(node.getLeftChild()) - height(node.getRightChild());
-    }
 }
