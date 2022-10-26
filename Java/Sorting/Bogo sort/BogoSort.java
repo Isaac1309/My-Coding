@@ -17,7 +17,7 @@ public class BogoSort {
     private void showSortedArray(){
         System.out.println("The number of iterations: "+counter);
         for(int i=0;i<nums.length;++i){
-            System.out.println(nums[i] + " ");
+            System.out.print(nums[i] + " ");
         }
     }
 
